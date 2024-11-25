@@ -1,0 +1,328 @@
+@charset "UTF-8";
+
+.header-wrap{
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 98;
+	.logo{
+		position: absolute;
+		top: 45px;
+		left: 45px;
+		z-index: 10;
+		display: block;
+		font-size: 0;
+		width: 50px;
+		height: 50px;
+		background-image: url("@/assets/images/logo.png");
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: contain;
+	}
+}
+
+.nav-wrap {
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: all 0.3s ease-out 0s;
+	z-index: 99;
+	transform: translateX(-100%);
+	.dim{
+		background: rgba($color: #000000, $alpha: 0.7);
+	}
+	.btn-close{
+		position: absolute;
+		top: 45px;
+		left: 45px;
+		width: 50px;
+		height: 50px;
+		background: $CBrand;
+		border: 2px solid #000;
+		border-radius: 100%;
+		font-size: 0;
+		z-index: 100;
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 30px;
+			height: 2px;
+			background-color: #000;
+			transition: all .2s ease-in-out;
+		}
+		
+		&::before {
+			transform: translate(-50%,-50%) rotate(45deg)
+		}
+		
+		&::after {
+			transform: translate(-50%,-50%) rotate(135deg)
+		}
+	}
+	.nav-list{
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		padding-top: 25px;
+		padding-left: 180px;
+		z-index: 99;
+		ul{
+			overflow: hidden;
+			overflow-y: auto;
+			flex-grow: 1;
+			margin-top: 26px;
+			li{
+				position: relative;
+				button{
+					position: relative;
+					padding-left: 30px;
+					font-size: 35px;
+					line-height: 60px;
+					color: #fff;
+					font-family: $fonten;
+					font-weight: 800;
+					transition: all .3s ease-out 0s;
+					cursor: pointer;
+					&::before{
+						position: absolute;
+						top: 50%;
+						left: 0;
+						content: "";
+						display: block;
+						width: 15px;
+						height: 15px;
+						background: $CBrand;
+						border-radius: 100%;
+						transform: translateY(-70%);
+						opacity: 0;
+						transition: all .2s ease-out 0s;
+					}
+					&:hover{
+						color: $CBrand;
+						&::before{
+							opacity: 1;
+						}
+					}
+				}
+				&+li{
+					padding-top: 30px;
+				}
+			}
+		}
+	}
+	&.active{
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+
+.container{
+	&.main{
+		[class^=sec-] {
+			position: relative;
+			padding: 100px 0;
+			.title-wrap {
+				padding-bottom: 60px;
+				text-align: center;
+				.title-type{
+					position: relative;
+					display: inline-block;
+					font-size: 42px;
+					font-family: $fonten;
+					font-weight: 800;
+					z-index: 10;
+					&::before{    
+						display: block;
+						content: "";
+						position: absolute;
+						top: -10px;
+						left: -15px;
+						width: 40px;
+						height: 40px;
+						background: $CBrand;
+						border-radius: 40px;
+						z-index: -1;
+					}
+				}
+			}
+		}
+		.sec-intro{
+			height: 100vh;
+			.memoji{
+				@include abs(c);
+				width: 480px;
+				height: 480px;
+			}
+			span{
+				position: absolute;
+				font-size: 35px;
+				font-family: $fonten;
+				transition: all .3s ease-in-out;
+				&.text1{
+					top: 30%;
+					left: 50%;
+					margin-left: -20%;
+				}
+				&.text2{
+					top: 20%;
+					left: 50%;
+					margin-left: 3%;
+				}
+				&.text3{
+					top: 52%;
+					left: 50%;
+					margin-left: -22%;
+				}
+				&.text4{
+					top: 40%;
+					left: 50%;
+					margin-left: 12%;
+				}
+				&.text5{
+					top: 73%;
+					left: 50%;
+					margin-left: 0;
+				}
+				&::before{
+					display: block;
+					content: "";
+					position: absolute;
+					top: -3px;
+					left: -13px;
+					width: 50px;
+					height: 50px;
+					background: $CBrand;
+					border-radius: 40px;
+					opacity: 0;
+					transition: all .3s ease-in-out;
+				}
+				&:hover {
+					color: $CBrand;
+					font-weight: 400;
+					font-family: $fonten;
+					&::before{
+						opacity: .2
+					}
+				}
+				
+			}
+		}
+		.sec-profile{
+			background: $CBg2;
+			.profile-box {
+				font-size: 0;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+				vertical-align: middle;
+				.me{
+					width: 300px;
+				}
+				.info{
+					padding-left: 60px;
+					font-size: 15px;
+					line-height: 24px;
+					div{
+						p{
+							font-size: 15px;
+							line-height: 24px;
+							&.title{
+								font-size: 20px;
+								font-family: $fonten;
+								font-weight: 800;
+							}
+							span{
+								color: $CText3;
+								font-size: 12px;
+								vertical-align: middle
+							}
+						}
+						&+div{
+							margin-top: 15px;
+						}
+					}
+				}
+			}
+		}
+		.sec-contact{
+			text-align: center;
+			p{
+				font-size: 15px;
+				font-family: $fonten;
+				&.email{
+					padding: 40px 0 35px;
+					font-size: 35px;
+				}
+				&.v2{
+					margin-top: 5px;
+					font-size: 13px;
+					opacity: .6;
+				}
+			}
+		}
+		.pop-toast{
+			width: initial;
+			left: inherit;
+			right: 45px;
+			padding: 10px 15px;
+			font-size: 12px;
+			transform: translate(0%, -45px);
+		}
+	}
+	&.portfolio{
+		padding: 0 50px;
+		.work-detail{
+
+		}
+		.title-box{
+			padding: 30px 0;
+			border-bottom: 2px solid $CText;
+			.title{
+				font-size: 46px;
+				font-family: $fonten;
+				font-weight: 600;
+			}
+			.date{
+				margin-top: 10px;
+				font-size: 16px;
+				color: $CText4;
+				font-family: $fonten;
+				font-weight: 300;
+			}
+		}
+		.info-box{
+			display: flex;
+			gap: 0 30px;
+			padding: 80px 0 50px;
+			.logo-box{
+				position: relative;
+				width: 30%;
+				height: 250px;
+				background-color: #000;
+				border-radius: 15px;
+				img{
+					@include abs(c);
+					width: 70px;
+				}
+			}
+			.desc-box{
+				p{
+					font-size: 16px;
+					line-height: 1.5;
+					&+p{
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+	}
+}

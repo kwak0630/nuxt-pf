@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+[class^="btn-"] {
+	position: relative;
+}
+
+.btn-type{
+	min-width: 100px;
+	height: 50px;
+	padding: 0 15px;
+	background-color: $CBrand;
+	border-radius: 6px;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+
+.btn-top{
+	width: 80px;
+	height: 80px;
+	border-radius: 80px;
+	box-shadow: 2px 3px 9px rgba($color: #000000, $alpha: 0.3);
+	.ico-arrow{
+		@include abs(c);
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+}
+
+.btn-back{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0 10px;
+	min-width: 100px;
+	height: 50px;
+	margin: 50px auto;
+	padding: 0 15px;
+	border-radius: 30px;
+	border: 1px solid $CText3;
+	font-size: 16px;
+	font-family: $fonten;
+	font-weight: 800;
+	.ico-arrow{
+		width: 18px;
+		height: 18px;
+		background-size: contain;
+		transform: rotate(90deg);
+	}
+}
